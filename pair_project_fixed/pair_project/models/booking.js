@@ -11,11 +11,16 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Booking.belongsTo(models.User, { foreignKey: 'StudentId', as: 'Student' });
-      Booking.belongsTo(models.TutoringService, { foreignKey: 'ServiceId', as: 'Service' });
+      Booking.belongsTo(models.User, { foreignKey: 'StudentId' });
+    Booking.belongsTo(models.TutoringService, { foreignKey : 'ServiceId' });
     }
   }
   Booking.init({
+    id: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true
+  },
     bookingDate: DataTypes.DATE,
     status: DataTypes.STRING,
     StudentId: DataTypes.INTEGER,
