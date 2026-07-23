@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "name": "Les Privat Matematika SMA",
+    "description": "Bimbingan matematika untuk persiapan ujian sekolah dan UTBK",
+    "price": 150000,
+    "CategoryId": 1,
+    "UserId": 7,
+    "imageUrl": "https://example.com/images/math-sma.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Kursus Bahasa Inggris Percakapan",
+    "description": "Belajar speaking dan listening untuk pemula hingga mahir",
+    "price": 200000,
+    "CategoryId": 2,
+    "UserId": 3,
+    "imageUrl": "https://example.com/images/english-speaking.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Bimbingan Fisika Dasar",
+    "description": "Pemahaman konsep fisika mekanika dan listrik untuk SMP-SMA",
+    "price": 175000,
+    "CategoryId": 3,
+    "UserId": 1,
+    "imageUrl": "https://example.com/images/physics-basic.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Les Kimia Organik",
+    "description": "Fokus pada reaksi kimia organik dan latihan soal",
+    "price": 180000,
+    "CategoryId": 4,
+    "UserId": 9,
+    "imageUrl": "https://example.com/images/chemistry-organic.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Kelas Biologi Anatomi",
+    "description": "Materi anatomi dan fisiologi manusia untuk siswa SMA",
+    "price": 160000,
+    "CategoryId": 5,
+    "UserId": 7,
+    "imageUrl": "https://example.com/images/biology-anatomy.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Kursus Menulis Bahasa Indonesia",
+    "description": "Meningkatkan kemampuan menulis esai dan karya sastra",
+    "price": 140000,
+    "CategoryId": 6,
+    "UserId": 7,
+    "imageUrl": "https://example.com/images/indonesian-writing.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Belajar Coding untuk Pemula",
+    "description": "Dasar-dasar pemrograman dengan Python dan JavaScript",
+    "price": 250000,
+    "CategoryId": 7,
+    "UserId": 1,
+    "imageUrl": "https://example.com/images/coding-beginner.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Les Piano untuk Anak",
+    "description": "Belajar dasar bermain piano dengan metode menyenangkan",
+    "price": 220000,
+    "CategoryId": 8,
+    "UserId": 9,
+    "imageUrl": "https://example.com/images/piano-kids.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Bimbingan Ekonomi Makro",
+    "description": "Pemahaman konsep ekonomi makro untuk siswa dan mahasiswa",
+    "price": 170000,
+    "CategoryId": 9,
+    "UserId": 3,
+    "imageUrl": "https://example.com/images/economy-macro.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Kelas Sejarah Indonesia",
+    "description": "Menelusuri sejarah kemerdekaan dan perkembangan bangsa",
+    "price": 130000,
+    "CategoryId": 10,
+    "UserId": 9,
+    "imageUrl": "https://example.com/images/history-indonesia.jpg"
+  }
+]

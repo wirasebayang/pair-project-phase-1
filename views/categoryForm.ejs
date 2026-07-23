@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <%- include('partials/head', { title: category && category.id ? 'Edit Category' : 'Add Category' }) %>
+</head>
+
+<body>
+
+    <%- include('partials/nav', { user }) %>
+
+    <div class="container">
+
+        <div class="page-head" style="margin-top:32px;">
+
+            <div>
+
+                <div class="hero-eyebrow">
+                    Category Management
+                </div>
+
+                <h1>
+                    <%= category && category.id ? 'Edit Category' : 'Add Category' %>
+                </h1>
+
+            </div>
+
+        </div>
+
+
+        <div class="card" style="max-width:560px;">
+
+            <% if (locals.errors) { %>
+                <div class="alert alert-error">
+                    <% errors.forEach(error => { %>
+                        <div><%= error %></div>
+                    <% }) %>
+                </div>
+            <% } %>
+
+            <form
+                action="<%= category && category.id ? '/admin/category/edit/' + category.id : '/admin/category/add' %>"
+                method="post"
+            >
+
+                <div class="field">
+
+                    <label>
+                        Category Name
+                    </label>
+
+                    <input
+                        type="text"
+                        name="name"
+                        value="<%= category ? category.name : '' %>"
+                        required
+                    >
+
+                </div>
+
+                <div class="form-actions">
+
+                    <button
+                        class="btn"
+                        type="submit"
+                    >
+                        <%= category && category.id ? 'Update Category' : 'Add Category' %>
+                    </button>
+
+                    <a
+                        class="btn btn-outline"
+                        href="/category"
+                    >
+                        Cancel
+                    </a>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

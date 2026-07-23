@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <%- include('partials/head', { title: 'Tutoring Services' }) %>
+</head>
+
+<body>
+
+    <%- include('partials/nav', { user }) %>
+
+    <div class="container">
+
+        <div class="page-head" style="margin-top:32px;">
+
+            <div>
+
+                <div class="hero-eyebrow">
+                    Marketplace Les
+                </div>
+
+                <h1>
+                    Tutoring Services
+                </h1>
+
+                <p>
+                    Temukan layanan tutoring yang sesuai dengan kebutuhanmu.
+                </p>
+
+            </div>
+
+            <% if (user.role === 'tutor') { %>
+
+                <a
+                    class="btn"
+                    href="/tutor/services/add"
+                >
+                    + Tambah Layanan
+                </a>
+
+            <% } %>
+
+        </div>
+
+
+        <form
+            class="search-form"
+            action="/services"
+            method="get"
+        >
+
+            <input
+                type="text"
+                name="search"
+                placeholder="Cari nama course..."
+                value="<%= search %>"
+            >
+
+            <button
+                class="btn btn-sm"
+                type="submit"
+            >
+                Cari
+            </button>
+
+            <% if (search) { %>
+
+                <a
+                    class="btn btn-outline btn-sm"
+                    href="/services"
+                >
+                    Reset
+                </a>
+
+            <% } %>
+
+        </form>
+
+
+        <% if (services.length === 0) { %>
+
+            <div class="card">
+
+                <% if (search) { %>
+
+                    <h3>
+                        Tidak ditemukan
+                    </h3>
+
+                    <p>
+                        Tidak ada course dengan nama "<%= search %>".
+                    </p>
+
+                <% } else { %>
+
+                    <h3>
+                        Belum ada layanan
+                    </h3>
+
+                    <p>
+                        Belum ada layanan tutoring yang tersedia.
+                    </p>
+
+                <% } %>
+
+            </div>
+
+        <% } else { %>
+
+            <div class="service-grid">
+
+                <% services.forEach(el => { %>
+
+                    <div class="service-card <%= catColor(el.Category ? el.Category.name : '') %>">
+
+                        <span class="tag <%= catColor(el.Category ? el.Category.name : '') %>">
+
+                            <%= el.Category ? el.Category.name : '-' %>
+
+                        </span>
+
+
+                        <h3>
+                            <%= el.name %>
+                        </h3>
+
+
+                        <div class="service-meta">
+
+                            Tutor:
+                            <%= el.User ? el.User.displayName : '-' %>
+
+                        </div>
+
+
+                        <div class="service-price">
+
+                            <%= el.formattedPrice %>
+
+                        </div>
+
+
+                        <div class="service-actions">
+
+                            <a
+                                class="btn btn-outline btn-sm"
+                                href="/services/<%= el.id %>"
+                            >
+                                Detail
+                            </a>
+
+
+                            <% if (user.role === 'student') { %>
+
+                                <% if (bookedServiceIds.includes(el.id)) { %>
+
+                                    <button
+                                        class="btn btn-sm"
+                                        type="button"
+                                        disabled
+                                    >
+                                        Booked
+                                    </button>
+
+                                <% } else { %>
+
+                                    <form
+                                        class="inline"
+                                        action="/student/bookings/<%= el.id %>"
+                                        method="post"
+                                    >
+
+                                        <button
+                                            class="btn btn-sm"
+                                            type="submit"
+                                        >
+                                            Booking
+                                        </button>
+
+                                    </form>
+
+                                <% } %>
+
+                            <% } %>
+
+
+                            <% if (user.role === 'tutor' && el.UserId === user.id) { %>
+
+                                <a
+                                    class="btn btn-outline btn-sm"
+                                    href="/tutor/services/edit/<%= el.id %>"
+                                >
+                                    Edit
+                                </a>
+
+
+                                <form
+                                    class="inline"
+                                    action="/tutor/services/delete/<%= el.id %>"
+                                    method="post"
+                                >
+
+                                    <button
+                                        class="btn btn-danger btn-sm"
+                                        type="submit"
+                                        onclick="return confirm('Yakin hapus service ini?')"
+                                    >
+                                        Hapus
+                                    </button>
+
+                                </form>
+
+                            <% } %>
+
+                        </div>
+
+                    </div>
+
+                <% }) %>
+
+            </div>
+
+        <% } %>
+
+    </div>
+
+</body>
+</html>

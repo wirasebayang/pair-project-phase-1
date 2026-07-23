@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <%- include('partials/head', { title: service.name }) %>
+</head>
+<body>
+    <%- include('partials/nav', { user }) %>
+
+    <div class="container">
+        <div style="margin-top:32px;">
+            <a href="/services">&larr; Kembali ke daftar layanan</a>
+        </div>
+
+        <div class="card" style="margin-top:16px;">
+            <span class="tag <%= catColor(service.Category ? service.Category.name : '') %>">
+                <%= service.Category ? service.Category.name : '-' %>
+            </span>
+            <h1 style="margin-top:10px;"><%= service.name %></h1>
+            <p class="service-meta">Tutor: <%= service.User ? service.User.displayName : '-' %></p>
+            <p class="service-price" style="font-size:1.2rem;"><%= service.formattedPrice %></p>
+
+            <% if (service.imageUrl) { %>
+                <img src="<%= service.imageUrl %>" alt="<%= service.name %>" style="max-width:100%; border-radius: var(--radius-sm); margin: 12px 0;">
+            <% } %>
+
+            <p><%= service.description %></p>
+
+            <% if (user.role === 'student') { %>
+                <% if (isBooked) { %>
+                    <button class="btn" type="button" disabled style="margin-top:16px;">Booked</button>
+                <% } else { %>
+                    <form action="/student/bookings/<%= service.id %>" method="post" style="margin-top:16px;">
+                        <button class="btn" type="submit">Booking Layanan Ini</button>
+                    </form>
+                <% } %>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Matematika"
+  },
+  {
+    "id": 2,
+    "name": "Bahasa Inggris"
+  },
+  {
+    "id": 3,
+    "name": "Fisika"
+  },
+  {
+    "id": 4,
+    "name": "Kimia"
+  },
+  {
+    "id": 5,
+    "name": "Biologi"
+  },
+  {
+    "id": 6,
+    "name": "Bahasa Indonesia"
+  },
+  {
+    "id": 7,
+    "name": "Komputer & Coding"
+  },
+  {
+    "id": 8,
+    "name": "Musik"
+  },
+  {
+    "id": 9,
+    "name": "Ekonomi"
+  },
+  {
+    "id": 10,
+    "name": "Sejarah"
+  }
+]

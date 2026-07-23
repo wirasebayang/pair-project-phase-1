@@ -1,0 +1,30 @@
+<header class="site-header">
+    <div class="header-inner">
+        <a class="brand" href="/home">OnlineCourse<span class="brand-dot">.</span></a>
+
+        <nav class="main-nav">
+            <a href="/category">Category</a>
+            <a href="/services">Layanan</a>
+
+            <% if (user.role === 'admin') { %>
+                <a href="/admin/category/add">+ Category</a>
+            <% } %>
+
+            <% if (user.role === 'tutor') { %>
+                <a href="/tutor/services/add">+ Layanan</a>
+                <a href="/tutor/services/my/list">Layanan Saya</a>
+                <a href="/tutor/bookings">Booking Masuk</a>
+            <% } %>
+
+            <% if (user.role === 'student') { %>
+                <a href="/student/bookings">Booking Saya</a>
+            <% } %>
+        </nav>
+
+        <div class="user-chip">
+            <span class="badge role-<%= user.role %>"><%= user.role %></span>
+            <span class="username"><%= user.username %></span>
+            <a class="logout-link" href="/logout">Keluar</a>
+        </div>
+    </div>
+</header>

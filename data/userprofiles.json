@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "fullname": "Andi Wijaya",
+    "phoneNumber": "081234567801",
+    "address": "Jl. Merdeka No. 12, Jakarta",
+    "UserId": 1
+  },
+  {
+    "id": 2,
+    "fullname": "Siti Rahma",
+    "phoneNumber": "081234567802",
+    "address": "Jl. Sudirman No. 5, Bandung",
+    "UserId": 2
+  },
+  {
+    "id": 3,
+    "fullname": "Budi Santoso",
+    "phoneNumber": "081234567803",
+    "address": "Jl. Gatot Subroto No. 20, Surabaya",
+    "UserId": 3
+  },
+  {
+    "id": 4,
+    "fullname": "Dewi Lestari",
+    "phoneNumber": "081234567804",
+    "address": "Jl. Diponegoro No. 7, Yogyakarta",
+    "UserId": 4
+  },
+  {
+    "id": 5,
+    "fullname": "Rian Pratama",
+    "phoneNumber": "081234567805",
+    "address": "Jl. Ahmad Yani No. 3, Semarang",
+    "UserId": 5
+  },
+  {
+    "id": 6,
+    "fullname": "Maya Puspita",
+    "phoneNumber": "081234567806",
+    "address": "Jl. Pahlawan No. 15, Malang",
+    "UserId": 6
+  },
+  {
+    "id": 7,
+    "fullname": "Fajar Nugroho",
+    "phoneNumber": "081234567807",
+    "address": "Jl. Veteran No. 9, Medan",
+    "UserId": 7
+  },
+  {
+    "id": 8,
+    "fullname": "Intan Permata",
+    "phoneNumber": "081234567808",
+    "address": "Jl. Kartini No. 11, Makassar",
+    "UserId": 8
+  },
+  {
+    "id": 9,
+    "fullname": "Yoga Saputra",
+    "phoneNumber": "081234567809",
+    "address": "Jl. Imam Bonjol No. 4, Palembang",
+    "UserId": 9
+  },
+  {
+    "id": 10,
+    "fullname": "Nabila Azzahra",
+    "phoneNumber": "081234567810",
+    "address": "Jl. Cihampelas No. 22, Bandung",
+    "UserId": 10
+  }
+]
