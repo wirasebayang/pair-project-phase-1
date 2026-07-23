@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <%- include('partials/head', { title: 'Categories' }) %>
+</head>
+
+<body>
+
+    <%- include('partials/nav', { user }) %>
+
+    <div class="container">
+
+        <div class="page-head" style="margin-top:32px;">
+
+            <div>
+
+                <div class="hero-eyebrow">
+                    Explore Learning
+                </div>
+
+                <h1>
+                    Categories
+                </h1>
+
+                <p>
+                    Pilih kategori pembelajaran dan temukan
+                    layanan tutoring yang sesuai dengan kebutuhanmu.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <% if (data.length === 0) { %>
+
+            <div class="card">
+                Belum ada kategori yang tersedia.
+            </div>
+
+        <% } else { %>
+
+            <div class="menu-grid">
+
+                <% data.forEach(el => { %>
+
+                    <div class="menu-card">
+
+                        <span class="tag <%= catColor(el.name) %>">
+                            Category
+                        </span>
+
+                        <h3>
+                            <%= el.name %>
+                        </h3>
+
+                        <p>
+                            Temukan layanan tutoring
+                            untuk kategori <%= el.name %>.
+                        </p>
+
+                        <div style="margin-top:16px; font-weight:600;">
+                            <a href="/category/<%= el.id %>">Lihat layanan →</a>
+                        </div>
+
+                        <% if (user.role === 'admin') { %>
+
+                            <div style="margin-top:12px; display:flex; gap:8px;">
+
+                                <a
+                                    class="btn btn-outline btn-sm"
+                                    href="/admin/category/edit/<%= el.id %>"
+                                >
+                                    Edit
+                                </a>
+
+                                <form
+                                    action="/admin/category/delete/<%= el.id %>"
+                                    method="post"
+                                    onsubmit="return confirm('Hapus category <%= el.name %>? Semua service dan booking di kategori ini akan ikut terhapus!')"
+                                >
+                                    <button class="btn btn-danger btn-sm" type="submit">
+                                        Hapus
+                                    </button>
+                                </form>
+
+                            </div>
+
+                        <% } %>
+
+                    </div>
+
+                <% }) %>
+
+            </div>
+
+        <% } %>
+
+    </div>
+
+</body>
+
+</html>

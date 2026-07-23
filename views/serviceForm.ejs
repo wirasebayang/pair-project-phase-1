@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <%- include('partials/head', { title: service && service.id ? 'Edit Service' : 'Add Service' }) %>
+</head>
+
+<body>
+
+    <%- include('partials/nav', { user }) %>
+
+    <div class="container">
+
+        <div class="page-head" style="margin-top:32px;">
+
+            <div>
+
+                <div class="hero-eyebrow">
+                    Tutor Service
+                </div>
+
+                <h1>
+                    <%= service && service.id ? 'Edit Tutoring Service' : 'Create Tutoring Service' %>
+                </h1>
+
+            </div>
+
+        </div>
+
+
+        <div class="card" style="max-width:560px;">
+
+            <% if (locals.errors) { %>
+                <div class="alert alert-error">
+                    <% errors.forEach(error => { %>
+                        <div><%= error %></div>
+                    <% }) %>
+                </div>
+            <% } %>
+
+            <form
+                action="<%= service && service.id ? '/tutor/services/edit/' + service.id : '/tutor/services/add' %>"
+                method="post"
+                enctype="multipart/form-data"
+            >
+
+                <div class="field">
+
+                    <label>
+                        Service Name
+                    </label>
+
+                    <input
+                        type="text"
+                        name="name"
+                        value="<%= service ? service.name : '' %>"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>
+                        Description
+                    </label>
+
+                    <textarea
+                        name="description"
+                        rows="5"
+                        required
+                    ><%= service ? service.description : '' %></textarea>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>
+                        Price
+                    </label>
+
+                    <input
+                        type="number"
+                        name="price"
+                        value="<%= service ? service.price : '' %>"
+                        min="0"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>
+                        Image (maks. 2MB)
+                    </label>
+
+                    <% if (service && service.imageUrl) { %>
+                        <img
+                            src="<%= service.imageUrl %>"
+                            alt="Current image"
+                            style="max-width:160px; display:block; margin-bottom:8px; border-radius:8px;"
+                        >
+                    <% } %>
+
+                    <input
+                        type="file"
+                        name="image"
+                        id="imageInput"
+                        accept="image/*"
+                    >
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>
+                        Category
+                    </label>
+
+                    <select
+                        name="CategoryId"
+                        required
+                    >
+
+                        <option value="">
+                            Choose Category
+                        </option>
+
+                        <% categories.forEach(category => { %>
+
+                            <option
+                                value="<%= category.id %>"
+                                <%= service && service.CategoryId == category.id ? 'selected' : '' %>
+                            >
+                                <%= category.name %>
+                            </option>
+
+                        <% }) %>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-actions">
+
+                    <button
+                        class="btn"
+                        type="submit"
+                    >
+                        <%= service && service.id ? 'Update Service' : 'Create Service' %>
+                    </button>
+
+                    <a
+                        class="btn btn-outline"
+                        href="/tutor"
+                    >
+                        Cancel
+                    </a>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <script>
+        const MAX_FILE_SIZE = 2 * 1024 * 1024
+
+        document.getElementById('imageInput').addEventListener('change', function () {
+
+            const file = this.files[0]
+
+            if (file && file.size > MAX_FILE_SIZE) {
+                alert('Ukuran file maksimal 2MB. File yang kamu pilih ' + (file.size / 1024 / 1024).toFixed(2) + 'MB. Silakan pilih gambar yang lebih kecil.')
+                this.value = ''
+            }
+        })
+    </script>
+
+</body>
+</html>

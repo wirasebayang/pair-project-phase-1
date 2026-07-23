@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <%- include('partials/head', { title: 'Home' }) %>
+</head>
+<body>
+    <%- include('partials/nav', { user }) %>
+
+    <div class="container">
+        <div class="page-head" style="margin-top:32px;">
+            <div>
+                <div class="hero-eyebrow">Dashboard</div>
+                <h1>Halo, <%= user.username %> 👋</h1>
+                <p>Kamu masuk sebagai <span class="badge role-<%= user.role %>"><%= user.role %></span></p>
+            </div>
+        </div>
+
+        <div class="menu-grid">
+            <a class="menu-card" href="/category">
+                <h3>Category</h3>
+                <p>Lihat daftar mata pelajaran yang tersedia.</p>
+            </a>
+
+            <a class="menu-card" href="/services">
+                <h3>Tutoring Services</h3>
+                <p>Jelajahi semua layanan les dari para tutor.</p>
+            </a>
+
+            <% if (user.role === 'admin') { %>
+                <a class="menu-card" href="/admin/category/add">
+                    <h3>Tambah Category</h3>
+                    <p>Buat mata pelajaran baru untuk platform.</p>
+                </a>
+            <% } %>
+
+            <% if (user.role === 'tutor') { %>
+                <a class="menu-card" href="/tutor/services/add">
+                    <h3>Tambah Layanan</h3>
+                    <p>Buka kelas les baru untuk student.</p>
+                </a>
+                <a class="menu-card" href="/tutor/services/my/list">
+                    <h3>Layanan Saya</h3>
+                    <p>Kelola les yang sudah kamu buat.</p>
+                </a>
+                <a class="menu-card" href="/tutor/bookings">
+                    <h3>Booking Masuk</h3>
+                    <p>Lihat student yang memesan les kamu.</p>
+                </a>
+            <% } %>
+
+            <% if (user.role === 'student') { %>
+                <a class="menu-card" href="/student/bookings">
+                    <h3>Booking Saya</h3>
+                    <p>Pantau status les yang sudah kamu pesan.</p>
+                </a>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>
