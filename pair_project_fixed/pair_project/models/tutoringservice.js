@@ -19,7 +19,7 @@ TutoringService.belongsTo(models.User, {
   foreignKey: 'UserId',
 });
 
-TutoringService.belongsToMany(models.User, { through: 'Booking' , foreignKey : 'ServiceId'});
+TutoringService.belongsToMany(models.User, { through: 'Booking' , foreignKey : 'ServiceId', as: 'Students' });
     }
   }
   TutoringService.init({

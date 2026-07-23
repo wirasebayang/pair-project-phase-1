@@ -22,14 +22,13 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'UserId',
       });
 
-      User.belongsToMany(models.TutoringService, { through: 'Booking', foreignKey: 'StudentId' });
+      User.belongsToMany(models.TutoringService, { through: 'Booking', foreignKey: 'StudentId', as: 'BookedServices' });
     }
   }
   User.init({
     username: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
       validate: {
         notNull: {
           args: true,
@@ -44,7 +43,6 @@ module.exports = (sequelize, DataTypes) => {
     email: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
       validate: {
         notNull: {
           args: true,

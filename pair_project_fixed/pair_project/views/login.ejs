@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <%- include('partials/head', { title: 'Masuk' }) %>
+</head>
+<body>
+    <div class="container">
+        <div class="card card-narrow">
+            <div class="hero-eyebrow">OnlineCourse</div>
+            <h1>Masuk</h1>
+            <p>Masuk untuk melanjutkan belajar atau mengelola layananmu.</p>
+
+            <% if (typeof error !== 'undefined') { %>
+                <div class="alert alert-error"><%= error %></div>
+            <% } %>
+
+            <form action="/login" method="post">
+                <div class="field">
+                    <label>Username</label>
+                    <input type="text" name="username" autocomplete="username">
+                </div>
+                <div class="field">
+                    <label>Password</label>
+                    <input type="password" name="password" autocomplete="current-password">
+                </div>
+
+                <div class="form-actions">
+                    <button class="btn" type="submit">Masuk</button>
+                    <a href="/">Batal</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
