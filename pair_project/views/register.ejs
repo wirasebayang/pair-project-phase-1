@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+</head>
+
+<body>
+    <h1>Register Page</h1>
+    <div>
+        <form action="/register" method="post">
+            <p>
+                <label> Username </label> <br>
+                <input type="text" name="username">
+            </p>
+            <p>
+                <label>E-mail</label> <br>
+                <input type="text" name="email">
+            </p>
+            <p>
+                <label> Password </label> <br>
+                <input type="text" name="password">
+            </p>
+            <p>
+                <label>Role</label> <br>
+                <% let role=['tutor', 'student' , 'admin' ] %>
+                    <select name="role">
+                        <option disabled selected>---CHOOSE ROLE---</option>
+                        <% role.forEach(el=> { %>
+                            <option value="<%= el %>">
+                                <%= el %>
+                            </option>
+                            <% }) %>
+                    </select>
+            </p>
+            <br><br>
+            <input type="submit" value="SUBMIT">
+            <a href="/">Back</a>
+        </form>
+    </div>
+</body>
+
+</html>
