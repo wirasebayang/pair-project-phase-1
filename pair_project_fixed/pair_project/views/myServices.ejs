@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <%- include('partials/head', { title: 'Layanan Saya' }) %>
+</head>
+<body>
+    <%- include('partials/nav', { user }) %>
+
+    <div class="container">
+        <div class="page-head" style="margin-top:32px;">
+            <div>
+                <div class="hero-eyebrow">Tutor</div>
+                <h1>Layanan Saya</h1>
+            </div>
+            <a class="btn" href="/tutor/services/add">+ Tambah Layanan</a>
+        </div>
+
+        <div class="table-wrap">
+            <table class="ledger">
+                <tr>
+                    <th style="width:48px;">No</th>
+                    <th>Nama</th>
+                    <th>Category</th>
+                    <th>Harga</th>
+                    <th style="width:180px;">Action</th>
+                </tr>
+                <% if (services.length === 0) { %>
+                    <tr class="empty-row"><td colspan="5">Kamu belum membuat layanan les.</td></tr>
+                <% } %>
+                <% services.forEach((el, i) => { %>
+                <tr>
+                    <td class="mono"><%= i + 1 %></td>
+                    <td><%= el.name %></td>
+                    <td><span class="tag <%= catColor(el.Category ? el.Category.name : '') %>"><%= el.Category ? el.Category.name : '-' %></span></td>
+                    <td class="mono">Rp <%= Number(el.price).toLocaleString('id-ID') %></td>
+                    <td>
+                        <a class="btn btn-outline btn-sm" href="/tutor/services/edit/<%= el.id %>">Edit</a>
+                        <form class="inline" action="/tutor/services/delete/<%= el.id %>" method="post">
+                            <button class="btn btn-danger btn-sm" type="submit" onclick="return confirm('Yakin hapus service ini?')">Hapus</button>
+                        </form>
+                    </td>
+                </tr>
+                <% }) %>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

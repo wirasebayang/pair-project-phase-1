@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <%- include('partials/head', { title: category ? 'Edit Category' : 'Add Category' }) %>
+</head>
+
+<body>
+
+    <%- include('partials/nav', { user }) %>
+
+    <div class="container">
+
+        <div class="page-head" style="margin-top:32px;">
+
+            <div>
+
+                <div class="hero-eyebrow">
+                    Category Management
+                </div>
+
+                <h1>
+                    <%= category ? 'Edit Category' : 'Add Category' %>
+                </h1>
+
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <form
+                action="<%= category ? '/admin/category/edit/' + category.id : '/admin/category/add' %>"
+                method="post"
+            >
+
+                <label>
+                    Category Name
+                </label>
+
+                <input
+                    type="text"
+                    name="name"
+                    value="<%= category ? category.name : '' %>"
+                    required
+                >
+
+                <div style="margin-top:20px;">
+
+                    <button
+                        class="btn"
+                        type="submit"
+                    >
+                        <%= category ? 'Update Category' : 'Add Category' %>
+                    </button>
+
+                    <a
+                        class="btn btn-outline"
+                        href="/category"
+                    >
+                        Cancel
+                    </a>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

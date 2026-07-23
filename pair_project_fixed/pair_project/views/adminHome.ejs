@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <%- include('partials/head', { title: 'Admin Dashboard' }) %>
+</head>
+
+<body>
+
+    <%- include('partials/nav', { user }) %>
+
+    <div class="container">
+
+        <div class="page-head" style="margin-top:32px;">
+
+            <div>
+
+                <div class="hero-eyebrow">
+                    Admin Dashboard
+                </div>
+
+                <h1>
+                    Halo, <%= user.username %> 👋
+                </h1>
+
+                <p>
+                    Selamat datang kembali di TutorHub.
+                    Kelola kategori dan pantau layanan tutoring di platform.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="menu-grid">
+
+            <a class="menu-card" href="/category">
+
+                <h3>
+                    Manage Categories
+                </h3>
+
+                <p>
+                    Lihat, tambah, ubah, atau hapus
+                    kategori layanan tutoring.
+                </p>
+
+            </a>
+
+
+            <a class="menu-card" href="/admin/category/add">
+
+                <h3>
+                    Add Category
+                </h3>
+
+                <p>
+                    Buat kategori baru
+                    untuk layanan tutoring.
+                </p>
+
+            </a>
+
+
+            <a class="menu-card" href="/services">
+
+                <h3>
+                    Browse Services
+                </h3>
+
+                <p>
+                    Lihat semua layanan tutoring
+                    yang tersedia di TutorHub.
+                </p>
+
+            </a>
+
+        </div>
+
+
+        <div class="card" style="margin-top:32px;">
+
+            <h2>
+                Keep TutorHub Organized 🚀
+            </h2>
+
+            <p>
+                Kelola kategori dengan baik supaya
+                student lebih mudah menemukan tutor yang tepat.
+            </p>
+
+            <a 
+                class="btn" 
+                href="/admin/category/add"
+            >
+                Add New Category
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

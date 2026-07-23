@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <%- include('partials/head', { title: 'Categories' }) %>
+</head>
+
+<body>
+
+    <%- include('partials/nav', { user }) %>
+
+    <div class="container">
+
+        <div class="page-head" style="margin-top:32px;">
+
+            <div>
+
+                <div class="hero-eyebrow">
+                    Explore Learning
+                </div>
+
+                <h1>
+                    Categories
+                </h1>
+
+                <p>
+                    Pilih kategori pembelajaran dan temukan
+                    layanan tutoring yang sesuai dengan kebutuhanmu.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <% if (data.length === 0) { %>
+
+            <div class="card">
+                Belum ada kategori yang tersedia.
+            </div>
+
+        <% } else { %>
+
+            <div class="menu-grid">
+
+                <% data.forEach(el => { %>
+
+                    <a 
+                        class="menu-card"
+                        href="/category/<%= el.id %>"
+                    >
+
+                        <span class="tag <%= catColor(el.name) %>">
+                            Category
+                        </span>
+
+                        <h3>
+                            <%= el.name %>
+                        </h3>
+
+                        <p>
+                            Temukan layanan tutoring
+                            untuk kategori <%= el.name %>.
+                        </p>
+
+                        <div style="margin-top:16px; font-weight:600;">
+                            Lihat layanan →
+                        </div>
+
+                    </a>
+
+                <% }) %>
+
+            </div>
+
+        <% } %>
+
+    </div>
+
+</body>
+
+</html>

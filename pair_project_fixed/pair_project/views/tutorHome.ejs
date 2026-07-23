@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <%- include('partials/head', { title: 'Tutor Dashboard' }) %>
+</head>
+
+<body>
+
+    <%- include('partials/nav', { user }) %>
+
+    <div class="container">
+
+        <div class="page-head" style="margin-top:32px;">
+
+            <div>
+
+                <div class="hero-eyebrow">
+                    Tutor Dashboard
+                </div>
+
+                <h1>
+                    Halo, <%= user.username %> 👋
+                </h1>
+
+                <p>
+                    Selamat datang kembali di TutorHub.
+                    Kelola layanan tutoring dan pantau booking dari student.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="menu-grid">
+
+            <a class="menu-card" href="/tutor/services/add">
+
+                <h3>
+                    Create Tutoring Service
+                </h3>
+
+                <p>
+                    Buat layanan tutoring baru
+                    dan tawarkan ke student di TutorHub.
+                </p>
+
+            </a>
+
+
+            <a class="menu-card" href="/tutor/services/my/list">
+
+                <h3>
+                    My Services
+                </h3>
+
+                <p>
+                    Lihat dan kelola semua layanan tutoring
+                    yang sudah kamu buat.
+                </p>
+
+            </a>
+
+
+            <a class="menu-card" href="/tutor/bookings">
+
+                <h3>
+                    Incoming Bookings
+                </h3>
+
+                <p>
+                    Lihat booking dari student
+                    yang ingin mengikuti layanan tutoring kamu.
+                </p>
+
+            </a>
+
+
+            <a class="menu-card" href="/services">
+
+                <h3>
+                    Browse Services
+                </h3>
+
+                <p>
+                    Lihat semua layanan tutoring
+                    yang tersedia di TutorHub.
+                </p>
+
+            </a>
+
+        </div>
+
+
+        <div class="card" style="margin-top:32px;">
+
+            <h2>
+                Share Your Knowledge 🚀
+            </h2>
+
+            <p>
+                Bantu student mencapai tujuan belajarnya
+                dengan membagikan pengetahuan dan keahlianmu.
+            </p>
+
+            <a 
+                class="btn" 
+                href="/tutor/services/add"
+            >
+                Create New Service
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
