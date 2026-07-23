@@ -7,7 +7,12 @@ const port = 3000
 app.set('view engine', 'ejs')
 app.use(express.urlencoded({extended:false}))
 
-app.get('/', Controller.home)
+app.get('/', Controller.landingPage)
+app.get('/register', Controller.register)
+app.post('/register', Controller.postRegister)
+app.get('/login', Controller.login)
+app.post('/login', Controller.postLogin)
+app.get('/home', Controller.home)
 app.get('/category', Controller.listCategory)
 
 app.listen(port, () => {
