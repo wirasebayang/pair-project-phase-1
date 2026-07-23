@@ -4,37 +4,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Category</title>
+    <title>Tutoring Service</title>
 </head>
 
 <body>
-    <h1>Category</h1>
-    <a href="/">Home</a>
+    <h1>Tutor</h1>
     <table border="1">
         <tr>
             <th>No</th>
             <th>Nama Layanan</th>
-            <th>Kategori</th>
-            <th>harga</th>
-            <th>tutor</th>
-            <th>Action</th>
+            <th>Deskripsi</th>
+            <th>price</th>
+            <th>category</th>
+            <th>user</th>
         </tr>
-        <% category.TutoringServices.forEach((el, i)=> { %>
+        <% data.forEach(el, i=> { %>
             <tr>
                 <td>
-                    <%= i + 1 %>
+                    <%= i+ 1 %>
                 </td>
                 <td>
                     <%= el.name %>
                 </td>
                 <td>
-                    <%= category.name %>
+                    <%= el.description %>
                 </td>
                 <td>
                     <%= el.price %>
                 </td>
                 <td>
-                    <%= el.User.username %>
+                    <%= el. %>
                 </td>
             </tr>
             <% }) %>
