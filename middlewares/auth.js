@@ -6,9 +6,6 @@ function authentication(req, res, next) {
     next()
 }
 
-// Middleware untuk cek role user, contoh pemakaian:
-// authorization('admin')            -> hanya admin
-// authorization('tutor', 'admin')   -> tutor atau admin
 function authorization(...allowedRoles) {
     return (req, res, next) => {
         if (!req.session.user) {

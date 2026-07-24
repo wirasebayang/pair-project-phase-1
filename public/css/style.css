@@ -1,9 +1,3 @@
-/* ==========================================================================
-   OnlineCourse — design tokens
-   Konsep: "buku catatan sekolah" — kertas hangat, tinta navy, aksen pine,
-   label mata pelajaran seperti stabilo, angka pakai font mono ala buku kas.
-   ========================================================================== */
-
 :root {
   --paper: #F3EEE1;
   --paper-raised: #FBF9F3;
@@ -520,7 +514,6 @@ table.ledger tbody tr:hover { background: var(--paper); }
 .menu-card h3 { font-size: 1rem; margin-bottom: 4px; }
 .menu-card p { font-size: 0.82rem; margin: 0; }
 
-/* ---------------- responsive ---------------- */
 
 @media (max-width: 600px) {
   .hero h1 { font-size: 2rem; }
@@ -528,7 +521,6 @@ table.ledger tbody tr:hover { background: var(--paper); }
   table.ledger, .table-wrap { overflow-x: auto; display: block; }
 }
 
-/* ---------------- accessibility ---------------- */
 
 a:focus-visible,
 button:focus-visible,

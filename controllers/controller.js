@@ -350,8 +350,6 @@ class Controller {
         }
     }
 
-    // ServiceId yang masih punya booking aktif (bukan cancelled) milik student,
-    // dipakai view untuk menonaktifkan tombol Booking. Non-student selalu kosong.
     static async getBookedServiceIds(sessionUser) {
 
         if (sessionUser.role !== 'student') {

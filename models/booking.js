@@ -20,9 +20,6 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Booking.init({
-    // PK eksplisit: tanpa ini, belongsToMany({ through: 'Booking' }) di User &
-    // TutoringService menghapus id auto-generated dan menjadikan
-    // [StudentId, ServiceId] composite PK, sehingga el.id di view = undefined
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
